@@ -1,0 +1,106 @@
+---
+// Component Imports
+import BaseHead from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import Footer from '../components/Footer.astro';
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'Picfair Dev Blog';
+let description = 'Dispatches from the Picfair dev team';
+let permalink = 'https://picfair.com/';
+
+// Data Fetching: List all Markdown posts in the repo.
+
+const posts = await Astro.glob("./posts/*.md")
+const sortedPosts = posts.sort((a, b) => new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime());
+const years = posts.map((a) => new Date(a.frontmatter.publishDate).getFullYear())
+const uniqYears = years.filter((v, i, a) => a.indexOf(v) === i);
+const allPosts = uniqYears.map((i) => {
+  const post = sortedPosts.filter((x) => new Date(x.frontmatter.publishDate).getFullYear() === i)
+  return post
+})
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<BaseHead {title} {description} {permalink} />
+
+		<style>
+			header {
+				width: 100%;
+				height: 100%;
+				background-color: var(--theme-bg-offset);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.content {
+				margin-top: 4rem;
+				margin-bottom: 8rem;
+				max-width: 65ch;
+			}
+
+			.content :global(main > * + *) {
+				margin-top: 1rem;
+			}
+
+			.intro {
+				padding-bottom: 4rem;
+				margin-bottom: 2rem;
+			}
+
+			.intro > * {
+				margin: 0;
+			}
+
+			.latest {
+				font-size: 2.5rem;
+				font-weight: 700;
+			}
+		</style>
+	</head>
+
+	<body class="light">
+		<BlogHeader />
+		<div class="wrapper">
+			<main class="content">
+				<section class="intro">
+					<h1 class="latest">{title}</h1>
+					<p>{description}</p>
+				</section>
+				<section class="posts" aria-label="Blog post list">
+                    {allPosts.map((y, i) => {
+                        return (
+						    <div>
+				                <div class="year">{uniqYears[i]}</div>
+                                {y.map((post) => {
+                                    return <BlogPostPreview post={post} />
+                                })}
+						    </div>
+					    )
+				    })}
+				</section>
+			</main>
+		</div>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.year {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                font-weight: 700;
+                font-size: 1.5rem;
+                line-height: 2rem;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid;
+			}
+</style>

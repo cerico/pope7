@@ -1,0 +1,52 @@
+<header class="wrapper">
+  <nav>
+    <a href="/" class="logo">
+    </a>
+  </nav>
+  <nav>
+    <ul class="items">
+      <li class="item">
+        <a href="https://sb.picfair.com">Storybook</a>
+      </li>
+      <li class="item">
+        <a href="https://picfair.com">App</a>
+      </li>
+      <li class="item">
+        <a href="/">Blog</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+	header {
+        margin-top: 3rem;
+        margin-bottom: 6rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+	nav {
+        width: 50%;
+    }
+    nav:nth-child(2) {
+        text-align: right;
+    }
+    .items {
+        display: flex;
+        justify-content: flex-end;
+	}
+    .item {
+        display: block;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+	@media only screen and (max-width: 624px) {
+        header {
+            margin-top: 1.5rem;
+            margin-bottom: 4.5rem;
+        }
+        .items {
+            display: block;
+        }
+	}
+</style>

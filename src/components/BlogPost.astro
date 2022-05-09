@@ -1,0 +1,60 @@
+---
+import Author from './Author.astro';
+
+export interface Props {
+	title: string;
+	author: string;
+	publishDate: string;
+	heroImage: string;
+	alt: string;
+}
+
+const { title, author, publishDate, heroImage, alt } = Astro.props;
+---
+
+<div class="layout">
+	<article class="content">
+		<div>
+			<main>
+				<slot />
+			</main>
+		</div>
+	</article>
+</div>
+
+<style>
+
+    main {
+        max-width: 780px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content {
+		margin-bottom: 8rem;
+	}
+
+	.content :global(main > * + *) {
+		margin-top: 1rem;
+	}
+
+	.content :global(h2) {
+		margin-top: 4rem;
+	}
+
+	.title,
+	.author,
+	.publish-date {
+		margin: 0;
+	}
+
+	.publish-date,
+	.author {
+		color: var(--theme-text-lighter);
+	}
+
+	.title {
+		font-size: 2.25rem;
+		font-weight: 700;
+	}
+</style>
