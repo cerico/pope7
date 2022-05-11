@@ -69,8 +69,9 @@ html {
 }
 
 body {
-	background: var(--theme-bg);
-	color: var(--theme-text);
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 :root.theme-dark {
@@ -122,6 +123,10 @@ body {
 	padding-left: 2rem;
 	padding-right: 2rem;
 	width: 100%;
+}
+
+.grow {
+	flex: 1;
 }
 
 nav ul {
