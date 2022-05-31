@@ -1,26 +1,15 @@
 :root {
-    --pink: #FF757D;
-    --purple: #2F2D76;
-    --color-light: #d1d5db;
-    --color-blue: #7AA2F7;
-    --parchment: #f3f7e9;
-    --paper: #f5f3e8;
-    --dark:#303540;
+  --pink: #FF757D;
+  --purple: #2F2D76;
+  --color-light: #d1d5db;
+  --color-blue: #7AA2F7;
+  --parchment: #f3f7e9;
+  --paper: #f5f3e8;
+  --dark:#303540;
 }
 
-body.light {
-    background: var(--purple); 
-    color: var(--pink);
-    p { color: var(--color-light)}
-	a { color: var(--color-blue)}
-    nav a { color: var(--color-blue)}
-    .post a { color: var(--color-blue)}
-    .posts a:hover, .posts a:focus { background-color: var(--paper)}
-    time { color: var(--pink)}
-    .year { border-color: var(--parchment)}
-}
-
-body.dark {
+@media (prefers-color-scheme: light) {
+  body {
     background: var(--paper);
     color: var(--pink);
     p { color: var(--dark)}
@@ -30,4 +19,18 @@ body.dark {
     .posts a:hover, .posts a:focus { background-color: var(--purple)}
     time { color: var(--fg-color)}
     .year { border-color: var(--dark)}
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--purple); 
+    color: var(--pink);
+    p { color: var(--color-light)}
+    a { color: var(--color-blue)}
+    nav a { color: var(--color-blue)}
+    .post a { color: var(--color-blue)}
+    .posts a:hover, .posts a:focus { background-color: var(--paper)}
+    time { color: var(--pink)}
+    .year { border-color: var(--parchment)}
+  }
 }
