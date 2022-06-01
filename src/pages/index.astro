@@ -10,13 +10,14 @@ import BlogPostPreview from '../components/BlogPostPreview.astro';
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'Picfair Dev Blog';
-let description = 'Dispatches from the Picfair dev team';
+let description = 'Tales from the bench';
 let permalink = 'https://picfair.com/';
 
 // Data Fetching: List all Markdown posts in the repo.
 
 const posts = await Astro.glob("./posts/*.md")
 const sortedPosts = posts.sort((a, b) => new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime());
+console.log(sortedPosts)
 const years = posts.map((a) => new Date(a.frontmatter.publishDate).getFullYear())
 const uniqYears = years.filter((v, i, a) => a.indexOf(v) === i);
 const allPosts = uniqYears.map((i) => {
