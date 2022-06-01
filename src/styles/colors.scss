@@ -19,6 +19,7 @@
     .posts a:hover, .posts a:focus { background-color: var(--purple)}
     time { color: var(--fg-color)}
     .year { border-color: var(--dark)}
+    code { background: var(--purple); color: var(--color-light) }
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -32,5 +33,6 @@
     .posts a:hover, .posts a:focus { background-color: var(--paper)}
     time { color: var(--pink)}
     .year { border-color: var(--parchment)}
+    code { background: var(--paper); color: var(--dark) }
   }
 }
