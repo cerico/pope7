@@ -308,8 +308,9 @@ ol, ul {
 }
 
 .content ol, .content ul {
-	list-style-position: inside;
 	padding: 15px;
+	list-style: initial;
+    list-style-position: inside;
 }
 
 img {
