@@ -1,18 +1,5 @@
 :root {
-    --raleway: 'Raleway';
-    --opensans: 'Open Sans';
-    --roboto: 'roboto';
-    --vollkorn:'vollkorn';
-    --gentium: 'gentium book basic';
-    --lato: 'Lato';
-    --cormorant: 'Cormorant Garamond';
-    --century: 'Century Schoolbook L';
-	--font-fallback: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-		Apple Color Emoji, Segoe UI Emoji;
-	--font-mono: 'IBM Plex Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
-		'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
-		'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-	--font-body: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --belleza: 'Belleza';
 }
 
-p { font-family: var(--raleway)};
+p { font-family: var(--belleza)};

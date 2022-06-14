@@ -6,12 +6,15 @@
   --parchment: #f3f7e9;
   --paper: #f5f3e8;
   --dark:#303540;
+  --black: #222;
+  --green: #7EE787;
 }
 
 @media (prefers-color-scheme: light) {
   body {
     background: var(--paper);
     color: var(--pink);
+    .content ul {background: #e9b5b8;}
     p, li { color: var(--dark)}
     a { color: var(--color-blue)}
     nav a { color: var(--color-blue)}
@@ -26,7 +29,9 @@
   body {
     background: var(--purple); 
     color: var(--pink);
-    p, li { color: var(--color-light)}
+    .content ul { background: var(--black)}
+    p { color: var(--color-light)}
+    li { color: var(--green)}
     a { color: var(--color-blue)}
     nav a { color: var(--color-blue)}
     .post a { color: var(--color-blue)}

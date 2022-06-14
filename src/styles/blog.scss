@@ -189,6 +189,7 @@ a {
 	gap: 0.5rem;
 }
 
+
 a > code {
 	position: relative;
 	color: var(--theme-accent);
@@ -212,11 +213,6 @@ a > code::before {
 a:hover,
 a:focus {
 	text-decoration: underline;
-}
-
-a:focus {
-	outline: 2px solid currentColor;
-	outline-offset: 0.25em;
 }
 
 strong {
@@ -307,8 +303,13 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 ol, ul {
-    list-style: none;
 	font-size: 1rem;
+	list-style: none;
+}
+
+.content ol, .content ul {
+	list-style-position: inside;
+	padding: 15px;
 }
 
 img {
